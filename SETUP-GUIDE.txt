@@ -1,0 +1,29 @@
+=========================================================
+COLLECTION BY HAREEM - ADMIN & CLOUD SYNC SETUP GUIDE
+=========================================================
+
+1. HIDDEN ADMIN LOGIN (Works Immediately)
+---------------------------------------------------------
+- Open `login.html` directly in your browser (not linked in public navbar).
+- Default Username: hareem_admin
+- Default Password: hareem@2026
+- To change password: Generate a SHA-256 hash of your new password and
+  paste it into `adminPasswordHash` inside `js/config.js`.
+
+2. CONNECT GOOGLE SHEETS (Free Live Database - 3 Mins)
+---------------------------------------------------------
+Step 1: Go to https://sheets.new and create a new Google Sheet.
+Step 2: Click Extensions -> Apps Script.
+Step 3: Delete existing code and paste the code from `google-apps-script/Code.gs`.
+Step 4: Click Deploy -> New deployment -> Select type: "Web app".
+        - Execute as: Me
+        - Who has access: Anyone
+Step 5: Click Deploy, authorize permissions, and copy the Web App URL.
+Step 6: Paste that URL into `googleScriptUrl` inside `js/config.js`.
+
+3. CONNECT IMGBB (Free Auto Image Upload - 1 Min)
+---------------------------------------------------------
+Step 1: Go to https://api.imgbb.com/ and sign in to get your free API key.
+Step 2: Paste the key into `imgbbApiKey` inside `js/config.js`.
+Step 3: Now in `admin.html`, selecting any photo from phone/PC will
+        automatically upload it and save the live URL in Google Sheets!

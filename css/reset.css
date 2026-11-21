@@ -1,0 +1,79 @@
+/* =========================================
+   Collection By Hareem - Reset & Variables
+   ========================================= */
+:root {
+  --bg-primary: #FDF6F6;
+  --bg-secondary: #F4E3E6;
+  --bg-white: #FFFFFF;
+  --text-primary: #4A2328;
+  --text-muted: #7A5459;
+  --accent: #B76E79;
+  --accent-hover: #9A5560;
+  --border-soft: #E4CFD3;
+  --whatsapp-green: #25D366;
+  --whatsapp-dark: #1DA851;
+  --danger: #C93B4B;
+  --danger-hover: #A82B3A;
+  --shadow-sm: 0 4px 14px rgba(74, 35, 40, 0.06);
+  --shadow-md: 0 10px 28px rgba(74, 35, 40, 0.10);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --transition: all 0.3s ease;
+
+  --font-script: 'Great Vibes', cursive;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}

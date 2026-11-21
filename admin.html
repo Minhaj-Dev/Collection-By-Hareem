@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Manage products for Collection By Hareem." />
+  <meta property="og:title" content="Control Panel | Collection By Hareem" />
+  <meta property="og:description" content="Manage products for Collection By Hareem." />
+  <meta property="og:type" content="website" />
+  <title>Control Panel | Collection By Hareem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+<body>
+  <div class="top-bar">Trendy &bull; Elegant &bull; Unique &mdash; Order Directly on WhatsApp: 03101351430</div>
+
+  <header class="navbar" id="repeatNav">
+    
+  </header>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="admin-header-bar">
+          <div>
+            <h1 class="section-title" style="font-size: 2rem; margin-bottom: 0.2rem;">Store Control Panel</h1>
+            <span id="storageModeBadge" class="mode-badge">Checking mode...</span>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="./index.html" class="btn btn-outline btn-sm">View Live Store</a>
+            <button type="button" id="logoutBtn" class="btn btn-danger btn-sm">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-layout">
+          <!-- Left: Add / Edit Product Form -->
+          <div class="admin-panel-card">
+            <h2 id="formHeading" class="section-title" style="font-size: 1.45rem; margin-bottom: 1.2rem;">Add New Product</h2>
+            <form id="adminProductForm">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="prodId">Product Code (SKU) *</label>
+                  <input type="text" id="prodId" required placeholder="e.g., CBH-NK-107" />
+                </div>
+                <div class="form-group">
+                  <label for="prodCategory">Category *</label>
+                  <select id="prodCategory" required>
+                    <option value="necklaces">Necklaces</option>
+                    <option value="earrings">Earrings</option>
+                    <option value="rings">Rings</option>
+                    <option value="bracelets">Bracelets</option>
+                    <option value="more">&amp; More</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="prodName">Product Name *</label>
+                <input type="text" id="prodName" required placeholder="e.g., Rose Gold Pearl Pendant" />
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="prodPrice">Price (PKR) *</label>
+                  <input type="number" id="prodPrice" required min="1" placeholder="2500" />
+                </div>
+                <div class="form-group">
+                  <label for="prodBadge">Badge (Optional)</label>
+                  <input type="text" id="prodBadge" placeholder="New / Bestseller" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="prodMaterial">Material</label>
+                <input type="text" id="prodMaterial" placeholder="e.g., Rose Gold Plated & Zircon" />
+              </div>
+
+              <div class="form-group">
+                <label for="prodCare">Care Guide</label>
+                <input type="text" id="prodCare" placeholder="e.g., Keep away from perfume & water" />
+              </div>
+
+              <div class="form-group">
+                <label for="prodDesc">Description *</label>
+                <textarea id="prodDesc" required placeholder="Short elegant description..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="prodImageFile">Upload Photo (Auto ImgBB Upload)</label>
+                <input type="file" id="prodImageFile" accept="image/*" />
+              </div>
+
+              <div class="form-group">
+                <label for="prodImageUrl">Or Paste Image URL *</label>
+                <input type="url" id="prodImageUrl" required placeholder="https://..." />
+                <div class="img-preview-box" id="imgPreviewBox">Image preview will appear here</div>
+              </div>
+
+              <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="checkbox" id="prodFeatured" style="width: auto;" />
+                <label for="prodFeatured" style="margin: 0;">Show in Home Featured Pieces</label>
+              </div>
+
+              <div style="display: flex; gap: 0.75rem;">
+                <button type="submit" id="saveProdBtn" class="btn btn-primary" style="flex: 1;">Add Product</button>
+                <button type="button" id="cancelEditBtn" class="btn btn-outline" style="display: none;">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right: Product List Table -->
+          <div class="admin-panel-card">
+            <h2 class="section-title" style="font-size: 1.45rem; margin-bottom: 1.2rem;">
+              All Products (<span id="totalProdCount">0</span>)
+            </h2>
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Product &amp; Code</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminProductTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Collection By Hareem</div>
+          <p class="footer-tagline">Shine with Style &mdash; Trendy &bull; Elegant &bull; Unique jewelry crafted for every occasion.</p>
+        </div>
+
+        <div>
+          <h4>Collections</h4>
+          <ul class="footer-links">
+            <li><a href="./necklaces.html">Necklaces</a></li>
+            <li><a href="./earrings.html">Earrings</a></li>
+            <li><a href="./rings.html">Rings</a></li>
+            <li><a href="./bracelets.html">Bracelets</a></li>
+            <li><a href="./more.html">&amp; More</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Connect With Us</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/923101351430?text=Assalam-o-Alaikum%20Collection%20By%20Hareem!" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> 03101351430</a></li>
+            <li><a href="tel:+923101351430"><i class="fa-solid fa-phone"></i> Call: 03101351430</a></li>
+            <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Collection by hareem</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Collection By Hareem. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923101351430?text=Assalam-o-Alaikum%20Collection%20By%20Hareem!%20I%20would%20like%20to%20inquire%20about%20your%20jewelry."
+     target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/components.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/admin.js"></script>
+</body>
+</html>
