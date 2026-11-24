@@ -2,7 +2,7 @@
    Collection By Hareem - Products & Pagination
    ========================================= */
 
-const ITEMS_PER_PAGE = 4;
+const ITEMS_PER_PAGE = 8;
 
 document.addEventListener("DOMContentLoaded", async () => {
   const featuredContainer = document.getElementById("featuredProducts");
